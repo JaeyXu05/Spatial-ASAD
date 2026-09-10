@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import h5py
 import torch
 import config as cfg
@@ -35,8 +36,8 @@ kfold = KFold(n_splits=cfg.kfold_num, shuffle=True, random_state=cfg.torch_seed)
 
 for sb in range(cfg.sbnum):
     # get the data of specific subject
-    eegdata = data[sb]
-    eeglabel = label[sb]
+    eegdata = data[sb][:] 
+    eeglabel = label[sb][:] 
 
     for tr in range(cfg.trnum):
         test_eegdata = eegdata[tr]
@@ -57,6 +58,7 @@ for sb in range(cfg.sbnum):
     mean_acc = torch.mean(res[sb][:])
     print(f"Subject {sb}: mean accuracy = {mean_acc:.3f}%")
 
+os.makedirs(cfg.result_dir, exist_ok=True)
 save_path = f"{cfg.result_dir}/result_loto.csv"
 np.savetxt(save_path, res.numpy(), delimiter=',')
 

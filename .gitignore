@@ -1,0 +1,19 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Checkpoints and models produced by training
+*.ckpt
+pretrain_model/
+finetune_model/
+model/
+
+# Results and figures produced by training / plotting
+*.csv
+results/
+figures/
+
+# Raw data files (kept out of version control; see README for format/placement)
+data/*.mat
+data/*.h5

@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import h5py
 import torch
 import config as cfg
@@ -87,6 +88,7 @@ if len(global_test) > 0:
     print(f"Global Average: {global_mean:.3f}% ± {global_std:.3f}")
     print(f"Total samples: {len(global_test)}")
 
+os.makedirs(cfg.result_dir, exist_ok=True)
 save_path = f"{cfg.result_dir}/result_within_trial_subject_level_{cfg.kfold_num}folds.csv"
 np.savetxt(save_path, res.numpy(), delimiter=',', fmt='%.3f')
 print(f"\nResults saved to {save_path}")

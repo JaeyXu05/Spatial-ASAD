@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import h5py
 import torch
 import config as cfg
@@ -88,6 +89,7 @@ for sb in range(cfg.sbnum):
     mean_acc = torch.mean(res[sb][:])
     print(f"Subject {sb}: mean accuracy = {mean_acc:.3f}%")
 
+os.makedirs(cfg.result_dir, exist_ok=True)
 save_path = f"{cfg.result_dir}/result_subject_adaptive.csv"
 np.savetxt(save_path, res.numpy(), delimiter=',')
 

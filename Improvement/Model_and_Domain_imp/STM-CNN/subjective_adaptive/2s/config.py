@@ -1,4 +1,7 @@
 import torch
+# paths: put KUL3_1D.mat into ./data (or override these two lines)
+process_data_dir='./data'
+result_dir='./results'
 
 # models
 pretrain_model_dir='./pretrain_model'
@@ -6,8 +9,8 @@ finetune_model_dir='./finetune_model'
 dataset_name = 'KUL3_1D.mat'
 
 
-device_ids = 5
-device = torch.device(f"cuda:{device_ids}" if torch.cuda.is_available() else "cpu")
+# GPU selection: use the CUDA_VISIBLE_DEVICES env var to pick a GPU; defaults to cuda:0
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 epoch_num = 100
 finetune_epoch_num=50
 batch_size = 192

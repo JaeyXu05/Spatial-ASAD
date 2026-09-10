@@ -30,22 +30,22 @@ results(4).type     = 'A';
 results(4).method   = 'LOSO';
 results(4).window   = 10;
 
-results(5).filepath = '../Initial/CNN-baseline_loto/1S/result_loto.csv';
+results(5).filepath = '../Initial/CNN-baseline_loto/1s/result_loto.csv';
 results(5).type     = 'B';
 results(5).method   = 'LOTO';
 results(5).window   = 1;
 
-results(6).filepath = '../Initial/CNN-baseline_loto/2S/result_loto.csv';
+results(6).filepath = '../Initial/CNN-baseline_loto/2s/result_loto.csv';
 results(6).type     = 'B';
 results(6).method   = 'LOTO';
 results(6).window   = 2;
 
-results(7).filepath = '../Initial/CNN-baseline_loto/5S/result_loto.csv';
+results(7).filepath = '../Initial/CNN-baseline_loto/5s/result_loto.csv';
 results(7).type     = 'B';
 results(7).method   = 'LOTO';
 results(7).window   = 5;
 
-results(8).filepath = '../Initial/CNN-baseline_loto/10S/result_loto.csv';
+results(8).filepath = '../Initial/CNN-baseline_loto/10s/result_loto.csv';
 results(8).type     = 'B';
 results(8).method   = 'LOTO';
 results(8).window   = 10;

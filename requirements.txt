@@ -1,0 +1,16 @@
+# Core dependencies for running the ASAD experiments.
+# Install with:  pip install -r requirements.txt
+torch>=2.0
+numpy
+h5py
+scikit-learn
+tqdm
+tensorboard
+scipy
+
+# Only required by the CNN-Mamba method (8 model files under
+# Improvement/{Model_imp,Model_and_Domain_imp}/CNN-Mamba/).
+# mamba_ssm needs a CUDA toolchain and is not covered by the line above;
+# install it separately, e.g.:
+#   pip install mamba-ssm
+# mamba-ssm

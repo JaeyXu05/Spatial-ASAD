@@ -1,0 +1,18 @@
+Place KUL3_1D.mat here before running any experiment.
+
+KUL3_1D.mat is NOT a stock download — it is this repo's preprocessed aggregation of the
+Das et al. 2016 auditory attention detection dataset (KU Leuven, "das-2016").
+
+- Raw data:  https://zenodo.org/records/4004271   (DOI 10.5281/zenodo.4004271)
+- Official preprocessing script (MATLAB, bundled in this repo):
+    spatial-focus-of-attention-csp-and-rgc-master/RGC/subject_adaptive/preprocessData.m
+  Run it on the downloaded raw S*.mat files; it writes preprocessed_data/dataS*.mat.
+
+Required HDF5 (MATLAB v7.3) keys in KUL3_1D.mat:
+    EEG  shape (16, 8, T, 64)   -> subjects x trials x time x channels
+    ENV  shape (16, 8, T)       -> subjects x trials x time (label 0/1)
+See README.md "Data" section for full details.
+
+Automated converter (run from repo root):
+    python data/build_kul3_1d.py --preprocessed path/to/preprocessed_data --out data/KUL3_1D.mat
+

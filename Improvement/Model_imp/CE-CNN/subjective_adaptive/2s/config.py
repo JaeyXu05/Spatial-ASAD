@@ -1,4 +1,7 @@
 import torch
+# paths: put KUL3_1D.mat into ./data (or override these two lines)
+process_data_dir='./data'
+result_dir='./results'
 
 # models
 model_names = ['CNN_CSP_Riemannian', 'CNN_CovarianceEnhanced']
@@ -13,8 +16,8 @@ elif model_name == 'CNN_CovarianceEnhanced':
     finetune_model_dir='./CNN_CovarianceEnhanced/finetune_model'
 dataset_name = 'KUL3_1D.mat'
 
-device_ids = 5
-device = torch.device(f"cuda:{device_ids}" if torch.cuda.is_available() else "cpu")
+# GPU selection: use the CUDA_VISIBLE_DEVICES env var to pick a GPU; defaults to cuda:0
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 epoch_num = 100
 finetune_epoch_num=50
 batch_size = 192
@@ -33,6 +36,3 @@ decision_window = 128*2
 
 
 csp_n_filters = 6  # CSP滤波器数量
-csp_fusion_mode = 'concat'  # 融合方式: 'concat', 'add', 'attention'
-csp_use_logm = True  # 是否使用精确矩阵对数
-csp_eps = 1e-4  # 协方差正则化系数
